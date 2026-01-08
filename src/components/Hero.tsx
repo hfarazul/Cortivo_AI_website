@@ -7,9 +7,21 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-import a16z from "@/images/a16z.jpeg";
-import sequoia from "@/images/sequoia-removebg-preview.png";
-import accel from "@/images/accel.svg";
+import a16zLogo from "@/images/a16z.jpeg";
+import sequoiaLogo from "@/images/sequoia-removebg-preview.png";
+import accelLogo from "@/images/accel.png";
+import bespokeLogo from "@/images/Bespoke-removebg-preview.png";
+import microforgeLogo from "@/images/microforge-new-removebg-preview.png";
+import surgegrowthLogo from "@/images/surgegrowth.avif";
+
+const clients = [
+  { name: "a16z", logo: a16zLogo },
+  { name: "Sequoia", logo: sequoiaLogo },
+  { name: "Accel", logo: accelLogo },
+  { name: "Bespoke", logo: bespokeLogo },
+  { name: "Microforge", logo: microforgeLogo },
+  { name: "Surge Growth", logo: surgegrowthLogo },
+];
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
@@ -69,7 +81,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center justify-center lg:justify-start mb-8"
+              className="flex items-center justify-center lg:justify-start mb-6"
             >
               <Link
                 href="https://calendar.app.google/5B19MHG9JVoGbyMw7"
@@ -82,20 +94,35 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Social Proof */}
+            {/* Logo Carousel */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col items-center lg:items-start gap-3"
+              className="w-full"
             >
-              <p className="text-xs text-white/40 uppercase tracking-wider">Trusted by teams backed by</p>
-              <div className="flex items-center gap-6">
-                <Image src={a16z} alt="a16z" height={20} className="opacity-50 hover:opacity-80 transition-opacity grayscale" />
-                <Image src={sequoia} alt="Sequoia" height={18} className="opacity-50 hover:opacity-80 transition-opacity grayscale" />
-                <Image src={accel} alt="Accel" height={18} className="opacity-50 hover:opacity-80 transition-opacity grayscale" />
+              <p className="text-white/40 text-xs text-center lg:text-left mb-4 uppercase tracking-wider">Trusted by innovative companies</p>
+              <div className="relative overflow-hidden">
+                {/* Scrolling container */}
+                <div className="flex items-center animate-scroll">
+                  {[...clients, ...clients, ...clients].map((client, index) => (
+                    <div
+                      key={`${client.name}-${index}`}
+                      className="flex-shrink-0 mx-3 md:mx-4 w-[70px] md:w-[90px] h-[24px] md:h-[28px] flex items-center justify-center"
+                    >
+                      <Image
+                        src={client.logo}
+                        alt={client.name}
+                        width={90}
+                        height={28}
+                        className="object-contain max-h-full max-w-full opacity-60 hover:opacity-100 transition-all duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
+
           </div>
 
           {/* Spline 3D Scene */}

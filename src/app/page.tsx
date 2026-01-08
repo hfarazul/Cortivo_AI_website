@@ -1,7 +1,6 @@
 import {
   Navbar,
   Hero,
-  Clients,
   Services,
   Process,
   Testimonials,
@@ -15,7 +14,6 @@ export default function Home() {
     <main className="min-h-screen bg-black">
       <Navbar />
       <Hero />
-      <Clients />
       <Services />
       <Process />
       <Testimonials />
