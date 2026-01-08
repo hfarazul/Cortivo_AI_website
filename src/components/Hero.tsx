@@ -3,8 +3,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+
+import a16z from "@/images/a16z.jpeg";
+import sequoia from "@/images/sequoia-removebg-preview.png";
+import accel from "@/images/accel.svg";
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
@@ -26,6 +31,19 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+            {/* Eyebrow Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0 }}
+              className="flex items-center justify-center lg:justify-start mb-6"
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-white/70">
+                <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                AI-Native Product Studio
+              </span>
+            </motion.div>
+
             {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -33,8 +51,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-5"
             >
-              We help you build{" "}
-              <span className="gradient-text">next-generation AI products</span>
+              Build <span className="gradient-text">AI Products</span> That Scale
             </motion.h1>
 
             {/* Subtitle */}
@@ -44,7 +61,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base md:text-lg text-white/60 max-w-xl mx-auto lg:mx-0 mb-8"
             >
-              Cortivo AI is an AI-native product studio building fullstack AI/LLM apps
+              From voice agents to multi-agent systems — we design, develop, and ship production-ready AI solutions.
             </motion.p>
 
             {/* CTA Button */}
@@ -52,7 +69,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center justify-center lg:justify-start"
+              className="flex items-center justify-center lg:justify-start mb-8"
             >
               <Link
                 href="https://calendar.app.google/5B19MHG9JVoGbyMw7"
@@ -65,16 +82,20 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* About Text */}
-            <motion.p
-              initial={{ opacity: 0, y: 40 }}
+            {/* Social Proof */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-10 text-sm md:text-base text-white/50 leading-relaxed max-w-xl mx-auto lg:mx-0"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col items-center lg:items-start gap-3"
             >
-              Here at Cortivo AI we engineer AI native solutions. We are committed to creating
-              innovative and inspiring world-class products. Come transform your ideas into powerful realities
-            </motion.p>
+              <p className="text-xs text-white/40 uppercase tracking-wider">Trusted by teams backed by</p>
+              <div className="flex items-center gap-6">
+                <Image src={a16z} alt="a16z" height={20} className="opacity-50 hover:opacity-80 transition-opacity grayscale" />
+                <Image src={sequoia} alt="Sequoia" height={18} className="opacity-50 hover:opacity-80 transition-opacity grayscale" />
+                <Image src={accel} alt="Accel" height={18} className="opacity-50 hover:opacity-80 transition-opacity grayscale" />
+              </div>
+            </motion.div>
           </div>
 
           {/* Spline 3D Scene */}
