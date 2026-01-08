@@ -34,8 +34,26 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-20 pb-4">
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-8">
+    <section className="relative overflow-hidden pt-20 pb-4 min-h-[600px] md:min-h-[700px]">
+      {/* Spline 3D Scene - Full Background */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="absolute inset-0 spline-container"
+      >
+        <Suspense fallback={
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="w-16 h-16 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
+          </div>
+        }>
+          <Spline scene="https://prod.spline.design/NQ9Qs07-tYHSubNq/scene.splinecode" />
+        </Suspense>
+      </motion.div>
+
+      {/* Content Layer */}
+      <div className="absolute inset-0 z-10 flex items-center pointer-events-none">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
@@ -83,7 +101,7 @@ export default function Hero() {
                 href="https://calendar.app.google/5B19MHG9JVoGbyMw7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group btn-premium px-8 py-4 rounded-full gradient-bg text-white font-semibold transition-all hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 flex items-center gap-2"
+                className="group btn-premium px-8 py-4 rounded-full gradient-bg text-white font-semibold transition-all hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 flex items-center gap-2 pointer-events-auto"
               >
                 Book a Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -121,21 +139,9 @@ export default function Hero() {
 
           </div>
 
-          {/* Spline 3D Scene */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative h-[400px] md:h-[500px] lg:h-[550px] w-full spline-container"
-          >
-            <Suspense fallback={
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-16 h-16 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
-              </div>
-            }>
-              <Spline scene="https://prod.spline.design/NQ9Qs07-tYHSubNq/scene.splinecode" />
-            </Suspense>
-          </motion.div>
+          {/* Empty space for robot to show through */}
+          <div className="hidden lg:block" />
+        </div>
         </div>
       </div>
 
