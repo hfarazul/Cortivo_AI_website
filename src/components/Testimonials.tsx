@@ -5,27 +5,15 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Michael Chen",
-    role: "CTO at Fintech Startup",
-    content: "Cortivo AI built our voice agent system from scratch. The natural conversations it handles have transformed our customer support - response quality improved while costs dropped significantly.",
+    name: "Praveen Chavali",
+    role: "CTO at Microforge",
+    content: "Cortivo built us an agentic platform that's now used by a16z, Sequoia, Elevation, and Accel. The autonomous pipeline they created ingests GitHub data, filters for signal, and deploys AI agents to research and score projects — all without human intervention.",
     rating: 5,
   },
   {
-    name: "Sarah Johnson",
-    role: "Founder at AI Health",
-    content: "Their multi-agent architecture was exactly what we needed. The team understood our complex requirements and delivered a system that reasons and acts autonomously.",
-    rating: 5,
-  },
-  {
-    name: "Alex Rivera",
-    role: "VP Engineering at DataScale",
-    content: "The model finetuning infrastructure Cortivo built for us ensures our AI performs reliably in production. Their evaluation frameworks caught issues we would have missed.",
-    rating: 5,
-  },
-  {
-    name: "Priya Patel",
-    role: "Product Lead at Enterprise Co",
-    content: "From ideation to launch, Cortivo was a true partner. They didn't just build what we asked - they helped us think through the AI strategy that made sense for our business.",
+    name: "Vaibhav Dusad",
+    role: "CEO at SurgeGrowth",
+    content: "We partnered with Cortivo to build an AI website generator for our customers. What brands used to spend days creating now takes under 2 minutes. It's transformed our entire offering.",
     rating: 5,
   },
 ];
