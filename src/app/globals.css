@@ -32,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -325,7 +326,7 @@ body::before {
   pointer-events: none !important;
 }
 
-/* Cover bottom-right corner where Spline logo appears */
+/* Cover bottom-right corner where Spline logo appears - hide on mobile */
 .spline-container::after {
   content: '';
   position: absolute;
@@ -336,6 +337,13 @@ body::before {
   background: rgb(0, 0, 0);
   pointer-events: none;
   z-index: 100;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .spline-container::after {
+    display: block;
+  }
 }
 
 /* Additional Spline watermark hiding */
@@ -343,5 +351,18 @@ body::before {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
+}
+
+/* Hide Built with Spline badge */
+.spline-container div[style*="bottom"],
+.spline-container div[style*="right"],
+.spline-container > div > div:last-child,
+.spline-container [class*="logo"],
+.spline-container [class*="watermark"],
+.spline-container [class*="badge"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 

@@ -34,13 +34,13 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-20 pb-4 min-h-[600px] md:min-h-[700px]">
-      {/* Spline 3D Scene - Full Background */}
+    <section className="relative overflow-hidden pt-28 md:pt-20 pb-4 min-h-0 md:min-h-[700px]">
+      {/* Spline 3D Scene - Desktop only */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="absolute inset-0 spline-container"
+        className="absolute inset-0 spline-container hidden md:block"
       >
         <Suspense fallback={
           <div className="w-full h-full flex items-center justify-center">
@@ -51,20 +51,24 @@ export default function Hero() {
         </Suspense>
       </motion.div>
 
+      {/* Mobile fallback background */}
+      <div className="absolute inset-0 md:hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-purple-500/20 blur-[100px]" />
+      </div>
+
       {/* Content Layer */}
-      <div className="absolute inset-0 z-10 flex items-center pointer-events-none">
+      <div className="relative md:absolute md:inset-0 z-10 flex items-start md:items-center pt-0 md:pt-0 pointer-events-none">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Text Content */}
-          <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+          {/* Text Content - Centered */}
+          <div className="text-center max-w-4xl mx-auto">
             {/* Eyebrow Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0 }}
-              className="flex items-center justify-center lg:justify-start mb-6"
+              className="flex items-center justify-center mb-6 md:mb-6"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-white/70">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 border border-white/20 text-sm text-white/90 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
                 AI-Native Product Studio
               </span>
@@ -75,7 +79,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-5"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-5 md:mb-5"
             >
               Build <span className="gradient-text">AI Products</span> That Scale
             </motion.h1>
@@ -85,7 +89,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base md:text-lg text-white/60 max-w-xl mx-auto lg:mx-0 mb-8"
+              className="text-base md:text-lg text-white/80 max-w-2xl mx-auto mb-8 md:mb-8"
             >
               From voice agents to multi-agent systems — we design, develop, and ship production-ready AI solutions.
             </motion.p>
@@ -95,7 +99,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center justify-center lg:justify-start mb-6"
+              className="flex items-center justify-center mb-6 md:mb-6"
             >
               <Link
                 href="https://calendar.app.google/5B19MHG9JVoGbyMw7"
@@ -115,7 +119,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="w-full"
             >
-              <p className="text-white/40 text-xs text-center lg:text-left mb-4 uppercase tracking-wider">Trusted by innovative companies</p>
+              <p className="text-white/60 text-xs text-center mb-4 uppercase tracking-wider">Trusted by innovative companies</p>
               <div className="relative overflow-hidden">
                 {/* Scrolling container */}
                 <div className="flex items-center animate-scroll">
@@ -138,10 +142,6 @@ export default function Hero() {
             </motion.div>
 
           </div>
-
-          {/* Empty space for robot to show through */}
-          <div className="hidden lg:block" />
-        </div>
         </div>
       </div>
 
