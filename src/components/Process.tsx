@@ -60,9 +60,9 @@ export default function Process() {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="relative overflow-visible"
             >
-              {/* Connector Line */}
+              {/* Connector Line - aligned with step numbers */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-16 left-full w-full h-px bg-gradient-to-r from-purple-500/50 to-transparent -translate-x-1/2 z-0" />
+                <div className="hidden md:block absolute -top-1 left-[55%] w-[90%] h-[2px] bg-gradient-to-r from-purple-500/60 via-purple-500/30 to-transparent z-10" />
               )}
 
               {/* Step Number - positioned outside card to avoid overflow:hidden clipping */}
