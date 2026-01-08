@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
+import AudioPlayer from "@/components/AudioPlayer";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${figtree.variable} font-sans antialiased bg-black text-white`}>
         {children}
+        <AudioPlayer />
       </body>
     </html>
   );
