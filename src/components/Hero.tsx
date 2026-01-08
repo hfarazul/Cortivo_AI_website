@@ -34,11 +34,7 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-20 pb-4 grid-pattern">
-      {/* Background Gradient Orbs */}
-      <div className="hero-orb top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
-      <div className="hero-orb top-1/3 left-1/3 -translate-x-1/2 animate-float opacity-30" />
-
+    <section className="relative overflow-hidden pt-20 pb-4">
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-6 md:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}

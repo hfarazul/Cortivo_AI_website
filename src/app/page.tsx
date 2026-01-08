@@ -3,6 +3,7 @@ import {
   Hero,
   Services,
   Process,
+  Team,
   Testimonials,
   FAQ,
   CTA,
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Process />
+      <Team />
       <Testimonials />
       <FAQ />
       <CTA />
