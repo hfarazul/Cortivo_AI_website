@@ -20,16 +20,16 @@ const clients: { name: string; logo: StaticImageData }[] = [
 
 export default function Clients() {
   return (
-    <section className="py-16 border-y border-white/5 overflow-hidden">
+    <section className="py-16 border-y border-[#2E2E2E] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-12"
         >
-          <p className="text-white/50 text-sm mb-2">Trusted by innovative companies</p>
+          <p className="text-[#757575] text-f-p-mobile uppercase tracking-widest">Trusted by innovative companies</p>
         </motion.div>
       </div>
 
@@ -52,7 +52,7 @@ export default function Clients() {
                 alt={client.name}
                 width={150}
                 height={50}
-                className="object-contain max-h-full max-w-full opacity-70 hover:opacity-100 transition-all duration-300"
+                className="object-contain max-h-full max-w-full opacity-50 hover:opacity-100 transition-all duration-200"
               />
             </div>
           ))}

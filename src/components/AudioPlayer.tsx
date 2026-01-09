@@ -44,14 +44,14 @@ export default function AudioPlayer() {
       <audio ref={audioRef} src="/audio/ambient.mp3" loop preload="auto" />
       <button
         onClick={toggleMute}
-        className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-purple-500/50 transition-all group"
+        className="fixed bottom-6 right-6 z-50 p-3 border border-[#2E2E2E] hover:border-[#FF4D00] bg-black transition-colors group"
         aria-label={isMuted ? "Unmute background music" : "Mute background music"}
         title={isMuted ? "Click to play ambient music" : "Click to mute"}
       >
         {isMuted ? (
-          <VolumeX className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" />
+          <VolumeX className="w-4 h-4 text-[#757575] group-hover:text-[#E6E6E6] transition-colors" />
         ) : (
-          <Volume2 className="w-5 h-5 text-purple-400 group-hover:text-purple-300 transition-colors" />
+          <Volume2 className="w-4 h-4 text-[#FF4D00] group-hover:text-[#FF4D00] transition-colors" />
         )}
       </button>
     </>

@@ -21,21 +21,21 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5"
+      transition={{ duration: 0.3 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-[#2E2E2E]"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 group">
             <Image
               src={logo}
               alt="Cortivo AI"
-              width={32}
-              height={32}
-              className="rounded-lg"
+              width={28}
+              height={28}
+              className="rounded-sm"
             />
-            <span className="text-white font-semibold text-lg tracking-tight">
+            <span className="text-[#E6E6E6] font-semibold text-sm tracking-tight">
               Cortivo AI
             </span>
           </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-white/70 hover:text-white transition-colors text-sm font-medium"
+                  className="actionable text-[#757575] hover:text-[#E6E6E6] text-f-p"
                 >
                   {link.label}
                 </Link>
@@ -59,21 +59,19 @@ export default function Navbar() {
               href="https://calendar.app.google/5B19MHG9JVoGbyMw7"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden px-5 py-2.5 rounded-full gradient-bg text-white text-sm font-medium transition-all hover:shadow-lg hover:shadow-purple-500/25"
+              className="group flex items-center gap-2 px-4 py-2 bg-[#FF4D00] text-black text-f-p font-semibold transition-opacity hover:opacity-90"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Book a call
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
+              Book a call
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-[#E6E6E6] border border-[#2E2E2E] hover:border-[#FF4D00] transition-colors"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -84,7 +82,8 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-black/95 border-t border-white/5"
+          transition={{ duration: 0.2 }}
+          className="md:hidden bg-black border-t border-[#2E2E2E]"
         >
           <div className="px-6 py-4 space-y-4">
             {navLinks.map((link) => (
@@ -92,7 +91,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-white/70 hover:text-white transition-colors text-base font-medium"
+                className="block text-[#757575] hover:text-[#E6E6E6] transition-colors text-f-p font-semibold"
               >
                 {link.label}
               </Link>
@@ -102,7 +101,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-5 py-3 rounded-full gradient-bg text-white text-sm font-medium mt-4"
+              className="block w-full text-center px-4 py-3 bg-[#FF4D00] text-black text-f-p font-semibold mt-4"
             >
               Book a call
             </Link>

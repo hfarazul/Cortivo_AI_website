@@ -27,47 +27,47 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 relative">
+    <section id="faq" className="py-24 relative border-t border-[#2E2E2E]">
       <div className="max-w-3xl mx-auto px-6 lg:px-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <span className="section-label mb-4">FAQs</span>
-          <h2 className="text-4xl md:text-5xl font-semibold mt-6 mb-4">
+          <h2 className="text-f-h2-mobile lg:text-f-h2 mt-6 mb-4">
             Frequently Asked{" "}
-            <span className="gradient-text">Questions</span>
+            <span className="text-[#FF4D00]">Questions</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-[#757575] text-f-p max-w-2xl mx-auto">
             Everything you need to know about working with Cortivo AI
           </p>
         </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card overflow-hidden"
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="border border-[rgba(230,230,230,0.1)] hover:border-[rgba(230,230,230,0.2)] transition-colors"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="w-full flex items-center justify-between p-5 text-left"
               >
-                <span className="font-medium pr-4">{faq.question}</span>
-                <div className="flex-shrink-0 p-1 rounded-full bg-white/5">
+                <span className="text-f-p font-semibold pr-4">{faq.question}</span>
+                <div className="flex-shrink-0">
                   {openIndex === index ? (
-                    <Minus className="w-5 h-5 text-purple-400" />
+                    <Minus className="w-4 h-4 text-[#FF4D00]" />
                   ) : (
-                    <Plus className="w-5 h-5 text-white/50" />
+                    <Plus className="w-4 h-4 text-[#757575]" />
                   )}
                 </div>
               </button>
@@ -77,10 +77,10 @@ export default function FAQ() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <div className="px-6 pb-6">
-                      <p className="text-white/60 leading-relaxed">{faq.answer}</p>
+                    <div className="px-5 pb-5">
+                      <p className="text-[#757575] text-f-p leading-relaxed">{faq.answer}</p>
                     </div>
                   </motion.div>
                 )}

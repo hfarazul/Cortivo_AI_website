@@ -27,58 +27,58 @@ const team: { name: string; role: string; bio: string; linkedin: string; image: 
 
 export default function Team() {
   return (
-    <section id="team" className="py-24 relative">
+    <section id="team" className="py-24 relative border-t border-[#2E2E2E]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <span className="section-label mb-4">Team</span>
-          <h2 className="text-4xl md:text-5xl font-semibold mt-6 mb-4">
-            Meet the <span className="gradient-text">Founders</span>
+          <h2 className="text-f-h2-mobile lg:text-f-h2 mt-6 mb-4">
+            Meet the <span className="text-[#FF4D00]">Founders</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-[#757575] text-f-p max-w-2xl mx-auto">
             Building the future of AI products together
           </p>
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
               className="card p-8 text-center"
             >
               {/* Avatar */}
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-2 border-white/10">
+              <div className="w-20 h-20 mx-auto mb-6 overflow-hidden border border-[#2E2E2E]">
                 <Image
                   src={member.image}
                   alt={member.name}
-                  width={96}
-                  height={96}
+                  width={80}
+                  height={80}
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Info */}
-              <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-              <p className="text-purple-400 text-sm font-medium mb-4">{member.role}</p>
-              <p className="text-white/60 text-sm leading-relaxed mb-6">{member.bio}</p>
+              <h3 className="text-f-h4 mb-1">{member.name}</h3>
+              <p className="text-[#FF4D00] text-f-p mb-4">{member.role}</p>
+              <p className="text-[#757575] text-f-p leading-relaxed mb-6">{member.bio}</p>
 
               {/* LinkedIn */}
               <Link
                 href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white/70 hover:text-white transition-all text-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-[#2E2E2E] text-[#757575] hover:text-[#E6E6E6] hover:border-[#FF4D00] transition-all text-f-p"
               >
                 <Linkedin className="w-4 h-4" />
                 Connect

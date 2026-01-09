@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AudioPlayer from "@/components/AudioPlayer";
 
-const figtree = Figtree({
-  variable: "--font-figtree",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -22,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${figtree.variable} font-sans antialiased bg-black text-white`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-black text-[#E6E6E6]`}>
         {children}
         <AudioPlayer />
       </body>

@@ -27,34 +27,32 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-16 h-16 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
+      <div className="w-12 h-12 border-2 border-[#2E2E2E] border-t-[#FF4D00] rounded-full animate-spin" />
     </div>
   ),
 });
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 md:pt-20 pb-4 min-h-0 md:min-h-[700px]">
+    <section className="relative overflow-hidden pt-24 md:pt-20 pb-4 min-h-0 md:min-h-[700px]">
       {/* Spline 3D Scene - Desktop only */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         className="absolute inset-0 spline-container hidden md:block"
       >
         <Suspense fallback={
           <div className="w-full h-full flex items-center justify-center">
-            <div className="w-16 h-16 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
+            <div className="w-12 h-12 border-2 border-[#2E2E2E] border-t-[#FF4D00] rounded-full animate-spin" />
           </div>
         }>
           <Spline scene="https://prod.spline.design/NQ9Qs07-tYHSubNq/scene.splinecode" />
         </Suspense>
       </motion.div>
 
-      {/* Mobile fallback background */}
-      <div className="absolute inset-0 md:hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-purple-500/20 blur-[100px]" />
-      </div>
+      {/* Mobile fallback background - subtle diagonal lines */}
+      <div className="absolute inset-0 md:hidden with-diagonal-lines opacity-30" />
 
       {/* Content Layer */}
       <div className="relative md:absolute md:inset-0 z-10 flex items-start md:items-center pt-0 md:pt-0 pointer-events-none">
@@ -63,63 +61,65 @@ export default function Hero() {
           <div className="text-center max-w-4xl mx-auto">
             {/* Eyebrow Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0 }}
-              className="flex items-center justify-center mb-6 md:mb-6"
+              transition={{ duration: 0.3, delay: 0 }}
+              className="flex items-center justify-center mb-6"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 border border-white/20 text-sm text-white/90 backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#2E2E2E] text-f-p text-[#757575]">
+                <span className="w-1.5 h-1.5 bg-[#FF4D00]" />
                 AI-Native Product Studio
               </span>
             </motion.div>
 
             {/* Main Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-5 md:mb-5"
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="text-f-h1-mobile lg:text-f-h1 mb-5"
             >
-              Build <span className="gradient-text">AI Products</span> That Scale
+              Build <span className="text-[#FF4D00]">AI Products</span> That Scale
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base md:text-lg text-white/80 max-w-2xl mx-auto mb-8 md:mb-8"
+              transition={{ duration: 0.3, delay: 0.15 }}
+              className="text-f-p text-[#C4C4C4] max-w-2xl mx-auto mb-8"
             >
               From voice agents to multi-agent systems — we design, develop, and ship production-ready AI solutions.
             </motion.p>
 
             {/* CTA Button */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center justify-center mb-6 md:mb-6"
+              transition={{ duration: 0.3, delay: 0.2 }}
+              className="flex items-center justify-center mb-8"
             >
               <Link
                 href="https://calendar.app.google/5B19MHG9JVoGbyMw7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group btn-premium px-8 py-4 rounded-full gradient-bg text-white font-semibold transition-all hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 flex items-center gap-2 pointer-events-auto"
+                className="group btn-premium px-6 py-3 bg-[#FF4D00] text-black font-semibold flex items-center gap-2 pointer-events-auto transition-opacity hover:opacity-90"
               >
                 Book a Call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </motion.div>
 
             {/* Logo Carousel */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.25 }}
               className="w-full"
             >
-              <p className="text-white/60 text-xs text-center mb-4 uppercase tracking-wider">Trusted by innovative companies</p>
+              <p className="text-[#757575] text-f-p-mobile text-center mb-4 uppercase tracking-widest">
+                Trusted by innovative companies
+              </p>
               <div className="relative overflow-hidden">
                 {/* Scrolling container */}
                 <div className="flex items-center animate-scroll">
@@ -133,7 +133,7 @@ export default function Hero() {
                         alt={client.name}
                         width={90}
                         height={28}
-                        className="object-contain max-h-full max-w-full opacity-60 hover:opacity-100 transition-all duration-300"
+                        className="object-contain max-h-full max-w-full opacity-50 hover:opacity-100 transition-all duration-200"
                       />
                     </div>
                   ))}

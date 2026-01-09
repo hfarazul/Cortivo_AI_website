@@ -23,7 +23,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 pt-16 pb-8">
+    <footer className="border-t border-[#2E2E2E] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand & Newsletter */}
@@ -32,28 +32,28 @@ export default function Footer() {
               <Image
                 src={logo}
                 alt="Cortivo AI"
-                width={32}
-                height={32}
-                className="rounded-lg"
+                width={28}
+                height={28}
+                className="rounded-sm"
               />
-              <span className="text-white font-semibold text-lg tracking-tight">
+              <span className="text-[#E6E6E6] font-semibold text-sm tracking-tight">
                 Cortivo AI
               </span>
             </Link>
-            <p className="text-white/60 max-w-sm">
+            <p className="text-[#757575] text-f-p max-w-sm">
               An AI-native product studio building fullstack AI/LLM apps. We engineer AI native solutions that transform ideas into powerful realities.
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <p className="font-medium mb-4">Links</p>
+            <p className="text-f-p font-semibold mb-4">Links</p>
             <ul className="space-y-3">
               {footerLinks.links.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="actionable text-[#757575] hover:text-[#E6E6E6] text-f-p"
                   >
                     {link.label}
                   </Link>
@@ -64,13 +64,13 @@ export default function Footer() {
 
           {/* Pages */}
           <div>
-            <p className="font-medium mb-4">Pages</p>
+            <p className="text-f-p font-semibold mb-4">Pages</p>
             <ul className="space-y-3">
               {footerLinks.pages.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="actionable text-[#757575] hover:text-[#E6E6E6] text-f-p"
                   >
                     {link.label}
                   </Link>
@@ -81,8 +81,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4">
-          <p className="text-white/40 text-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#2E2E2E] gap-4">
+          <p className="text-[#757575] text-f-p-mobile">
             © {new Date().getFullYear()} Cortivo. All rights reserved.
           </p>
 
@@ -94,9 +94,9 @@ export default function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                className="p-2 border border-[#2E2E2E] hover:border-[#FF4D00] transition-colors"
               >
-                <social.icon className="w-5 h-5 text-white/60" />
+                <social.icon className="w-4 h-4 text-[#757575]" />
               </Link>
             ))}
           </div>
