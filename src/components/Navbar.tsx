@@ -31,11 +31,10 @@ export default function Navbar() {
             <Image
               src={logo}
               alt="Cortivo AI"
-              width={28}
-              height={28}
-              className="rounded-sm"
+              width={24}
+              height={24}
             />
-            <span className="text-[#E6E6E6] font-semibold text-sm tracking-tight">
+            <span className="logo-text">
               Cortivo AI
             </span>
           </Link>

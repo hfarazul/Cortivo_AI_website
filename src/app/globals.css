@@ -203,6 +203,7 @@ body::before {
 .card {
   background: transparent;
   border: 1px solid var(--border-light);
+  border-radius: 0; /* Explicitly sharp corners - no rounded edges */
   position: relative;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
@@ -241,12 +242,26 @@ body::before {
    ============================================ */
 
 .section-label {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  background: rgba(255, 77, 0, 0.1);
+  border-radius: 0; /* Explicitly sharp corners */
+}
+
+/* Logo text styling - consistent with design system */
+.logo-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
 }
 
 /* ============================================

@@ -27,7 +27,7 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-12 h-12 border-2 border-[#2E2E2E] border-t-[#FF4D00] rounded-full animate-spin" />
+      <div className="w-12 h-12 border-2 border-[#2E2E2E] border-t-[#FF4D00] animate-spin" />
     </div>
   ),
 });
@@ -44,7 +44,7 @@ export default function Hero() {
       >
         <Suspense fallback={
           <div className="w-full h-full flex items-center justify-center">
-            <div className="w-12 h-12 border-2 border-[#2E2E2E] border-t-[#FF4D00] rounded-full animate-spin" />
+            <div className="w-12 h-12 border-2 border-[#2E2E2E] border-t-[#FF4D00] animate-spin" />
           </div>
         }>
           <Spline scene="https://prod.spline.design/NQ9Qs07-tYHSubNq/scene.splinecode" />
