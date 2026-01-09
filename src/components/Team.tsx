@@ -12,14 +12,14 @@ const team: { name: string; role: string; bio: string; linkedin: string; image: 
   {
     name: "Haque Farazul",
     role: "Co-founder",
-    bio: "IIT Kharagpur alum with expertise in AI, blockchain, and product development. Previously at Mastercard, now building AI-native solutions at Cortivo.",
+    bio: "IIT Kharagpur alum with expertise in AI, software architecture, and product development. Previously at Mastercard, now building AI-native solutions at Cortivo.",
     linkedin: "https://www.linkedin.com/in/haquefarazul/",
     image: haqImage,
   },
   {
     name: "Nishit Goyal",
     role: "Co-founder",
-    bio: "Delhi Technological University alum. Former PM at Rocket Learning where he led AI initiatives with OpenAI, Meta & Google.org, scaling the team 10x.",
+    bio: "Delhi College of Engineering alum. Formerly led Rocket Learning's flagship AI initiatives with Google DeepMind, OpenAI & Meta; scaled the team 10x.",
     linkedin: "https://www.linkedin.com/in/nishit-goyal/",
     image: nishitImage,
   },

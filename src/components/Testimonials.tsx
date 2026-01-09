@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Praveen Chavali",
     role: "CTO at Microforge",
-    content: "Cortivo built us an agentic platform that's now used by a16z, Sequoia, Elevation, and Accel. The autonomous pipeline they created ingests GitHub data, filters for signal, and deploys AI agents to research and score projects — all without human intervention.",
+    content: "Cortivo built us an agentic platform that ingests open web data, filters for signal, and deploys AI agents to research and score leads - all without human intervention.",
     rating: 5,
   },
   {
