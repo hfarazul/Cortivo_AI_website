@@ -1,24 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lightbulb, Code, Rocket } from "lucide-react";
+import LottieIcon from "./LottieIcon";
+
+// Process step animations
+import processIdeationAnimation from "@/animations/process/process-ideation.json";
+import processDevelopmentAnimation from "@/animations/process/process-development.json";
+import processLaunchAnimation from "@/animations/process/process-launch.json";
 
 const steps = [
   {
     number: "01",
-    icon: Lightbulb,
+    animation: processIdeationAnimation,
     title: "Ideation",
     description: "We'll get on a call to ideate with you & understand your vision and goals",
   },
   {
     number: "02",
-    icon: Code,
+    animation: processDevelopmentAnimation,
     title: "Development",
     description: "With your business goals in mind, we'll design & develop the product",
   },
   {
     number: "03",
-    icon: Rocket,
+    animation: processLaunchAnimation,
     title: "Launch",
     description: "We will launch the product & continue to support you with updates & more",
   },
@@ -66,9 +71,9 @@ export default function Process() {
               </div>
 
               <div className="card p-8 pt-10 text-center relative z-10 h-full">
-                {/* Icon */}
+                {/* Animated Icon */}
                 <div className="w-14 h-14 mx-auto mb-6 bg-[#1A1A1A] flex items-center justify-center">
-                  <step.icon className="w-6 h-6 text-[#FF4D00]" />
+                  <LottieIcon animationData={step.animation} size={32} />
                 </div>
 
                 {/* Content */}
