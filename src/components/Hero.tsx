@@ -66,8 +66,11 @@ export default function Hero() {
               transition={{ duration: 0.3, delay: 0 }}
               className="flex items-center justify-center mb-6"
             >
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#2E2E2E] text-f-p text-[#757575]">
-                <span className="w-1.5 h-1.5 bg-[#FF4D00]" />
+              <span
+                className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#2E2E2E] text-f-p text-[#E6E6E6]"
+                style={{ textShadow: '0 0 8px rgba(0,0,0,0.9), 0 0 16px rgba(0,0,0,0.7), 0 2px 4px rgba(0,0,0,0.8)' }}
+              >
+                <span className="w-1.5 h-1.5 bg-[#FF4D00]" style={{ boxShadow: '0 0 6px rgba(255,77,0,0.5)' }} />
                 AI-Native Product Studio
               </span>
             </motion.div>
