@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@playwright/test": "^1.57.0",
-    "@splinetool/react-spline": "^4.1.0",
     "framer-motion": "^12.24.10",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.562.0",

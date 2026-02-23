@@ -49,6 +49,9 @@
 
 * {
   box-sizing: border-box;
+}
+
+html, body {
   overscroll-behavior: none;
 }
 
@@ -528,67 +531,6 @@ textarea:focus:focus-visible {
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
-}
-
-/* ============================================
-   SPLINE CONTAINER
-   Hide watermark
-   ============================================ */
-
-.spline-container {
-  position: relative;
-}
-
-.spline-container a[href*="spline"],
-.spline-container > div > a,
-.spline-container canvas + a,
-.spline-container canvas + div,
-.spline-container div[style*="position: absolute"] > a,
-.spline-container > div > div > a,
-.spline-container img[alt*="logo"],
-.spline-container [data-logo],
-.spline-container > div > div:last-child:not(:first-child) {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-.spline-container::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 170px;
-  height: 58px;
-  background: rgb(0, 0, 0);
-  pointer-events: none;
-  z-index: 100;
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .spline-container::after {
-    display: block;
-  }
-}
-
-.spline-container canvas ~ * {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-.spline-container div[style*="bottom"],
-.spline-container div[style*="right"],
-.spline-container > div > div:last-child,
-.spline-container [class*="logo"],
-.spline-container [class*="watermark"],
-.spline-container [class*="badge"] {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
 }
 
 /* ============================================
