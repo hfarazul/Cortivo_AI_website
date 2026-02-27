@@ -11,6 +11,7 @@ const navLinks = [
   { href: "#services", label: "Services" },
   { href: "#process", label: "Process" },
   { href: "#faq", label: "FAQs" },
+  { href: "/tools/filing-analyzer", label: "Filing Analyzer" },
   { href: "mailto:nishit@cortivo.ai", label: "Contact Us" },
 ];
 
