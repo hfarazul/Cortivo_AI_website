@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PDFParse } from "pdf-parse";
+import { join } from "path";
+
+PDFParse.setWorker(join(process.cwd(), "node_modules/pdf-parse/dist/worker/pdf.worker.mjs"));
 
 const INDIAN_ANNUAL_REPORT_SECTIONS = [
   "Chairman's Message",
