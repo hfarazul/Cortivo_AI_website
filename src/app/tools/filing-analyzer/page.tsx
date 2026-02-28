@@ -23,24 +23,27 @@ export default function FilingAnalyzerPage() {
   const [currentFiling, setCurrentFiling] = useState<FilingData | null>(null);
   const [previousFiling, setPreviousFiling] = useState<FilingData | null>(null);
   const [fetchingUrl, setFetchingUrl] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
-  const handleCompanySelect = async (company: { name: string; symbol: string; annualReportUrl?: string }) => {
-    if (!company.annualReportUrl) return;
-
+  const handleReportFetch = async (url: string) => {
     setFetchingUrl(true);
+    setFetchError(null);
     try {
       const response = await fetch("/api/filing/fetch", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: company.annualReportUrl }),
+        body: JSON.stringify({ url }),
       });
 
       if (response.ok) {
         const data = await response.json();
         setCurrentFiling(data);
+      } else {
+        const err = await response.json().catch(() => null);
+        setFetchError(err?.error || `Failed to fetch report (HTTP ${response.status})`);
       }
     } catch {
-      // Error handled silently — user can still upload manually
+      setFetchError("Network error. The report URL may be inaccessible.");
     } finally {
       setFetchingUrl(false);
     }
@@ -109,13 +112,22 @@ export default function FilingAnalyzerPage() {
               transition={{ duration: 0.3, delay: 0.1 }}
               className="space-y-6"
             >
-              {/* Company Search */}
+              {/* Company Search + Scrape */}
               <div className="border border-[#2E2E2E] p-5">
-                <CompanySearch onCompanySelect={handleCompanySelect} />
+                <CompanySearch
+                  onCompanySelect={() => {}}
+                  onReportFetch={handleReportFetch}
+                  fetchingReport={fetchingUrl}
+                />
                 {fetchingUrl && (
                   <div className="flex items-center gap-2 mt-3">
                     <div className="w-4 h-4 border-2 border-[#2E2E2E] border-t-[#FF4D00] animate-spin" />
-                    <span className="text-[0.625rem] text-[#757575]">Fetching report...</span>
+                    <span className="text-[0.625rem] text-[#757575]">Downloading & parsing report...</span>
+                  </div>
+                )}
+                {fetchError && (
+                  <div className="mt-3 p-2 border border-red-900 bg-[rgba(255,0,0,0.05)]">
+                    <span className="text-[0.625rem] text-red-400">{fetchError}</span>
                   </div>
                 )}
               </div>
@@ -203,8 +215,8 @@ export default function FilingAnalyzerPage() {
                   </div>
                   <h3 className="text-f-h3-mobile lg:text-f-h3 mb-3">No filing loaded</h3>
                   <p className="text-f-p text-[#757575] text-center max-w-md">
-                    Search for a company or upload an annual report PDF to get started.
-                    Supports annual reports from any BSE/NSE listed company.
+                    Search for a company to find annual reports, paste a direct PDF URL,
+                    or upload an annual report PDF to get started.
                   </p>
                 </div>
               )}
